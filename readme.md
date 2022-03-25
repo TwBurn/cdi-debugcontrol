@@ -5,4 +5,4 @@ One and two controller configurations are supported.
 
 This code and resources are released as CC0.
 
-(c) TwBurn 2022 - twilight@nmotion.nl
+Created by TwBurn 2022 - twilight@nmotion.nl
