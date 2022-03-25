@@ -1,4 +1,4 @@
-#CD-i Controller Debug Application
+# CD-i Controller Debug Application
 
 This is a test application to test CD-i controllers.
 One and two controller configurations are supported.
