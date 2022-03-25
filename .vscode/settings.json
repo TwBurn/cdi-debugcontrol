@@ -1,0 +1,15 @@
+{
+	"C_Cpp.default.includePath": [
+		"C:\\CDi\\OS9C\\DEFS"
+	],
+	"files.associations": {
+		"sysio.h": "c",
+		"game.h": "c",
+		"SYSIO.H": "c",
+		"ucm.h": "c",
+		"events.h": "c",
+		"ERRNO.H": "c",
+		"EVENTS.H": "c",
+		"UCM.H": "c"
+	}
+}

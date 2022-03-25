@@ -1,0 +1,27 @@
+!@opts: runout=2
+!@opts: imagetype=cdi
+!@opts: imageformat=unscrambled
+!
+! Disc Building Utility - Version 4.3.1  9/7/94
+!
+!	Album		DebugControl
+!	Publisher	JEFFREY JANSSEN
+!	Preparer	JEFFREY JANSSEN
+!
+!	Volume		DebugControl
+!	Disc name	DISK/DEBUGCTL.CDI
+!
+!  Track 00 (Data Mode 2 Form 2)
+!
+	leadin data
+!
+!  Track 01 (Data Mode 2 Form 1/2, not scrambled)
+!
+	track data
+	index 00	00:00:00 ! 00:01:74 (150 sectors from 0 to 149)
+	index 01	00:02:00 ! 00:33:74 (2400 sectors from 150 to 2549)
+!
+!  Track AA (Data Mode 2 Form 2, not scrambled)
+!
+	leadout data
+	index 01	00:34:00
