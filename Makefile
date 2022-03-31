@@ -18,23 +18,25 @@ LD      = l68
 MASTER  = vcdmastr.exe
 
 #FILES TO COMPILE
-FILES   = $(OUTPUT)\main.r $(OUTPUT)\cdio.r $(OUTPUT)\video.r $(OUTPUT)\graphics.r $(OUTPUT)\input.r
+FILES   = $(OUTPUT)\main.r $(OUTPUT)\video.r $(OUTPUT)\graphics.r $(OUTPUT)\input.r
 
 #LINKER CONFIGURATION
-LDPARAM = -a -n=cdi_$(NAME) -o=$(BUILD)\$(NAME) $(CLIB)\cstart.r $(FILES) -l=$(CLIB)\cdi.l -l=$(CLIB)\cdisys.l -l=$(CLIB)\clib.l -l=$(CLIB)\cio.l -l=$(CLIB)\math.l -l=$(CLIB)\sys.l -l=$(CLIB)\usr.l
+LDPARAM = -a $(CLIB)\cstart.r $(FILES) -l=$(CLIB)\cdi.l -l=$(CLIB)\cdisys.l -l=$(CLIB)\clib.l -l=$(CLIB)\cio.l -l=$(CLIB)\math.l -l=$(CLIB)\sys.l -l=$(CLIB)\usr.l
 
 cd: link
 	$(MASTER) build.cd
 
 rebuild: clean cd
 
+cdi_link: $(FILES)
+	crt_link -n=play $(LDPARAM) -o=$(BUILD)\$(NAME).app
+	$(LD) -z=link.txt
+	fixmod -ua=80ff $(BUILD)\$(NAME).app
+
 link: $(FILES)
-	crt_link $(LDPARAM)
+	crt_link -n=cdi_$(NAME) -o=$(BUILD)\$(NAME) $(LDPARAM)
 	$(LD) -z=link.txt
 	fixmod -uo=0.0 $(BUILD)\$(NAME)
-
-$(OUTPUT)\cdio.r : $(SRC)\cdio.c
-	$(CC) $(CCFLAGS) -O=2 $(SRC)\cdio.c
 
 $(OUTPUT)\graphics.r : $(SRC)\graphics.c
 	$(CC) $(CCFLAGS) -O=2 $(SRC)\graphics.c

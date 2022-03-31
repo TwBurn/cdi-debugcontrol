@@ -4,6 +4,7 @@
 #include <memory.h>
 #include "video.h"
 #include "graphics.h"
+#include "data.h"
 
 u_int frameDone = 0, frameTick = 0;
 
@@ -38,7 +39,7 @@ void createVideoBuffers()
 	pbBackground = (u_char*)srqcmem(VBUFFER_SIZE, VIDEO2);
 
 	fillVideoBuffer(paCursor, 0);
-	fillVideoBuffer(pbBackground, 0);
+	decodeRle(backgroundData, pbBackground);
 
 	dc_wrli(videoPath, lctA, 0, 0, cp_dadr((int)paCursor + pixelStart));
 	dc_wrli(videoPath, lctB, 0, 0, cp_dadr((int)pbBackground + pixelStart));
@@ -65,7 +66,7 @@ int readImage(file, videoBuffer)
 int readScreen(file)
 	int file;
 {
-	return readImage(file, pbBackground);
+	return read(file, pbBackground, 6144);
 }
 
 void copyRect(sourceBuffer, targetBuffer, x, y, width, height, sourceWidth)
@@ -104,7 +105,7 @@ void clearRect(videoBuffer, x, y, width, height, color)
 
 }
 
-void decodeClut(source, target)
+void decodeRle(source, target)
 	register u_char* source;
 	register u_char* target;
 {
@@ -152,6 +153,4 @@ void setIcf(icfA, icfB)
 void initGraphics()
 {
 	createVideoBuffers();
-	readPalette(PA, "PLANE_A.PAL");
-	readPalette(PB, "PLANE_B.PAL");
 }

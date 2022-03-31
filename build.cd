@@ -13,20 +13,10 @@ define
 	message							from "BUILD/MESSAGE.TXT"
 
 	application file	DebugCtl    from "BUILD/DEBUGCTL"
-
-	yellow      file    PlaneAPal   from "BUILD/PLANE_A.PAL"
-	yellow      file    PlaneBPal   from "BUILD/PLANE_B.PAL"
-
-	green       file    DataRtf     from record data in channel 0 from
-										"BUILD/SCREEN.BIN"
-
 {
 	"COPYRGHT.TXT"	owner 0.0 protection 0x111	from	Copyright
 	"ABSTRACT.TXT"	owner 0.0 protection 0x111	from	Abstract
 	"BIBLIOGR.TXT"	owner 0.0 protection 0x111	from	Biblio
 	"CDI_DEBUGCTL"  owner 0.0 protection 0x555	from	DebugCtl
-	"DATA.RTF"      owner 0.0 protection 0x111  from    DataRtf
-	"PLANE_A.PAL"   owner 0.0 protection 0x111  from    PlaneAPal
-	"PLANE_B.PAL"   owner 0.0 protection 0x111  from    PlaneBPal
 }
 

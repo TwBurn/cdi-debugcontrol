@@ -5,6 +5,8 @@
 #define PT_CENTER 256
 #define PT_DELAY 2
 
+#define clamp(value, limit) (value < -limit ? -limit : (value > limit ? limit : value))
+
 int inputPath1, inputPath2;
 
 InputRelative ipResult1, ipResult2;
@@ -64,6 +66,9 @@ void handleInput(path, result)
 
 		x = x - PT_CENTER;
 		y = y - PT_CENTER;
+
+		x = clamp(x, 64);
+		y = clamp(y, 64);
 
 		if (x || y) {
 			result->DeltaX = x;

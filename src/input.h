@@ -2,10 +2,10 @@
 #define	__INPUT_H__
 
 typedef struct InputRelative {
-	short DeltaX;
-	short DeltaY;
-	short Buttons;
-	short Delay;
+	char DeltaX;
+	char DeltaY;
+	u_char Buttons;
+	u_char Delay;
 } InputRelative;
 
 extern int inputPath1, inputPath2;

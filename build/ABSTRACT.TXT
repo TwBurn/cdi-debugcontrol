@@ -1,1 +1,3 @@
-Nobelia for CD-i
+DebugControl for CD-i
+
+Controller debug application
